@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 import program from 'commander';
-import diffFinder from '..';
+import compareJsons from '..';
 
 program
-  .version('0.0.1d')
+  .version('0.0.1e')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<firstConfig>, <secondConfig>')
   .action((b, a) => {
-    console.log(diffFinder(b, a));
+    console.log(compareJsons(b, a));
   })
   .option('-f, --format [type]', 'Output format');
 
