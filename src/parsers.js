@@ -1,22 +1,13 @@
 import path from 'path';
 import yaml from 'js-yaml';
-import _ from 'lodash';
 import ini from 'ini';
 
-const getType = fileName => path.extname(fileName);
+const getType = pathToFile => path.extname(pathToFile);
 
-const parsers = [
-  {
-    func: file => JSON.parse(file),
-    check: file => getType(file) === '.json',
-  },
-  {
-    func: file => yaml.safeLoad(file),
-    check: file => getType(file) === '.yml',
-  },
-  {
-    func: file => ini.parse(file),
-    check: file => getType(file) === '.ini',
-  }];
+const parsers = {
+  '.json': JSON.parse,
+  '.yml': yaml.safeLoad,
+  '.ini': ini.parse,
+};
 
-export default filePath => _.find(parsers, e => e.check(filePath)).func;
+export default pathToFile => parsers[getType(pathToFile)];
