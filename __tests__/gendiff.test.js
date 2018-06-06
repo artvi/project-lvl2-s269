@@ -21,3 +21,13 @@ test('comparing two .yml files', () => {
   const current = showDiffBetweenTwoFiles(path1, path2);
   expect(current).toBe(expected);
 });
+
+test('comparing two .ini files', () => {
+  const path1 = '__tests__/__fixtures__/before.ini';
+  const path2 = '__tests__/__fixtures__/after.ini';
+  const exPath = '__tests__/__fixtures__/expected.txt';
+
+  const expected = fs.readFileSync(exPath, 'utf8');
+  const current = showDiffBetweenTwoFiles(path1, path2);
+  expect(current).toBe(expected);
+});

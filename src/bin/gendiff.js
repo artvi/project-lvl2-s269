@@ -4,7 +4,7 @@ import program from 'commander';
 import showDiffBetweenTwoFiles from '..';
 
 program
-  .version('0.1.2a')
+  .version('0.1.2b')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<firstConfig>, <secondConfig>')
   .action((b, a) => {
