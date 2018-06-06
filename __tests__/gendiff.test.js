@@ -1,5 +1,5 @@
 import fs from 'fs';
-import showDiffBetweenTwoFiles from '../src';
+import findDiffBetweenTwoFiles from '../src';
 
 
 test('comparing two .jsons files', () => {
@@ -8,7 +8,7 @@ test('comparing two .jsons files', () => {
   const exPath = '__tests__/__fixtures__/expected.txt';
 
   const expected = fs.readFileSync(exPath, 'utf8');
-  const current = showDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2);
   expect(current).toBe(expected);
 });
 
@@ -18,7 +18,7 @@ test('comparing two .yml files', () => {
   const exPath = '__tests__/__fixtures__/expected.txt';
 
   const expected = fs.readFileSync(exPath, 'utf8');
-  const current = showDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2);
   expect(current).toBe(expected);
 });
 
@@ -28,6 +28,6 @@ test('comparing two .ini files', () => {
   const exPath = '__tests__/__fixtures__/expected.txt';
 
   const expected = fs.readFileSync(exPath, 'utf8');
-  const current = showDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2);
   expect(current).toBe(expected);
 });

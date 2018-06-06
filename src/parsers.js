@@ -3,7 +3,7 @@ import yaml from 'js-yaml';
 import _ from 'lodash';
 import ini from 'ini';
 
-const getType = file => path.extname(file);
+const getType = fileName => path.extname(fileName);
 
 const parsers = [
   {
