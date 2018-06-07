@@ -5,19 +5,19 @@ import getParserByFilePath from './parsers';
 
 export default (path1, path2) => {
   const parse = getParserByFilePath(path1);
-  const contentBefore = parse(fs.readFileSync(path1, 'utf8'));
-  const contentAfter = parse(fs.readFileSync(path2, 'utf8'));
+  const objBefore = parse(fs.readFileSync(path1, 'utf8'));
+  const objAfter = parse(fs.readFileSync(path2, 'utf8'));
 
-  const keys = Object.keys({ ...contentBefore, ...contentAfter });
+  const keys = Object.keys({ ...objBefore, ...objAfter });
 
   const result = keys.reduce((acc, el) => {
-    if (contentBefore[el] === contentAfter[el]) {
-      return [...acc, `  ${el}: ${contentBefore[el]}`];
-    } else if (_.has(contentBefore, el)) {
-      return _.has(contentAfter, el) ?
-        [...acc, `  + ${el}: ${contentAfter[el]}`, `  - ${el}: ${contentBefore[el]}`] :
-        [...acc, `  - ${el}: ${contentBefore[el]}`];
-    } return [...acc, `  + ${el}: ${contentAfter[el]}`];
+    if (objBefore[el] === objAfter[el]) {
+      return [...acc, `  ${el}: ${objBefore[el]}`];
+    } else if (_.has(objBefore, el)) {
+      return _.has(objAfter, el) ?
+        [...acc, `  + ${el}: ${objAfter[el]}`, `  - ${el}: ${objBefore[el]}`] :
+        [...acc, `  - ${el}: ${objBefore[el]}`];
+    } return [...acc, `  + ${el}: ${objAfter[el]}`];
   }, []);
 
   const str = _.join(result, '\n');

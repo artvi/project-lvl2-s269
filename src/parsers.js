@@ -15,5 +15,5 @@ export default (pathToFile) => {
   if (!parsers[type]) {
     throw new Error(`sorry, we don't support ${type} files yet`);
   }
-  return parsers[getType(pathToFile)];
+  return parsers[type];
 };
