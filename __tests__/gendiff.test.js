@@ -2,7 +2,7 @@ import fs from 'fs';
 import findDiffBetweenTwoFiles from '../src';
 
 
-test('comparing two .jsons files', () => {
+test('comparing two .json files', () => {
   const path1 = '__tests__/__fixtures__/before.json';
   const path2 = '__tests__/__fixtures__/after.json';
   const exPath = '__tests__/__fixtures__/expected.txt';

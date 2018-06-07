@@ -10,4 +10,10 @@ const parsers = {
   '.ini': ini.parse,
 };
 
-export default pathToFile => parsers[getType(pathToFile)];
+export default (pathToFile) => {
+  const type = getType(pathToFile);
+  if (!parsers[type]) {
+    throw new Error(`sorry, we don't support ${type} files yet`);
+  }
+  return parsers[getType(pathToFile)];
+};
