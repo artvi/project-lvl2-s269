@@ -1,8 +1,6 @@
-import path from 'path';
 import yaml from 'js-yaml';
 import ini from 'ini';
 
-const getType = pathToFile => path.extname(pathToFile);
 
 const parsers = {
   '.json': JSON.parse,
@@ -10,8 +8,7 @@ const parsers = {
   '.ini': ini.parse,
 };
 
-export default (pathToFile) => {
-  const type = getType(pathToFile);
+export default (type) => {
   if (!parsers[type]) {
     throw new Error(`sorry, we don't support ${type} files yet`);
   }
