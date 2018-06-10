@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import getParser from './parsers';
-import ASTBuilder from './testAST';
-import render from './testRend';
+import buildAST from './ASTBuilder';
+import render from './render';
 
 
 export default (path1, path2) => {
@@ -12,7 +12,7 @@ export default (path1, path2) => {
   const objAfter = parse(fs.readFileSync(path2, 'utf8'));
 
 
-  const ast = ASTBuilder(objBefore, objAfter);
+  const ast = buildAST(objBefore, objAfter);
 
   return render(ast);
 };
