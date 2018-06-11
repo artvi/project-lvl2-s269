@@ -9,7 +9,7 @@ test('comparing two .json files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 
@@ -20,7 +20,7 @@ test('comparing two .yml files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 
@@ -31,7 +31,7 @@ test('comparing two .ini files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 
@@ -42,7 +42,7 @@ test('comparing two nested .json files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 
@@ -53,7 +53,7 @@ test('comparing two nested .yml files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 
@@ -64,7 +64,7 @@ test('comparing two nested .ini files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  const current = findDiffBetweenTwoFiles(path1, path2, 'tree');
   expect(current).toBe(expected);
 });
 

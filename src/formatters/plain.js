@@ -22,15 +22,17 @@ const renderers = {
   },
 };
 
-const render = (ast, ancestry = '') => {
-  const processedData = ast.reduce((acc, el) => {
-    const currentRender = renderers[el.type];
-    if (!currentRender) {
+const render = (ast, ancestry = '') =>
+  ast.reduce((acc, el) => {
+    const process = renderers[el.type];
+    if (!_.has(renderers, el.type)) {
       return acc;
     }
-    return [...acc, currentRender(el, ancestry, render)];
+    return [...acc, process(el, ancestry, render)];
   }, []);
+
+export default (ast) => {
+  const processedData = render(ast);
   const result = _.flatten(processedData);
   return _.join(result, '\n');
 };
-export default render;

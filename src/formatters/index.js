@@ -1,11 +1,11 @@
-import defaultRender from './defaultrender';
-import plainRender from './plainrender';
-import jsonRender from './jsonrender';
+import tree from './tree';
+import plain from './plain';
+import json from './json';
 
 const formats = {
-  default: defaultRender,
-  plain: plainRender,
-  json: jsonRender,
+  tree,
+  plain,
+  json,
 };
 
 const getRender = (format) => {

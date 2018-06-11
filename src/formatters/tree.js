@@ -37,8 +37,8 @@ const renderers = {
 
 const render = (ast, tabLevel = 0) => {
   const processedData = ast.map((el) => {
-    const currentRender = renderers[el.type];
-    return currentRender(el, tabLevel, render);
+    const process = renderers[el.type];
+    return process(el, tabLevel, render);
   });
   const result = _.flatten(processedData);
   return stringify(result, tabLevel);
