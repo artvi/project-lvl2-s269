@@ -9,7 +9,7 @@ test('comparing two .json files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
   expect(current).toBe(expected);
 });
 
@@ -20,7 +20,7 @@ test('comparing two .yml files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
   expect(current).toBe(expected);
 });
 
@@ -31,7 +31,7 @@ test('comparing two .ini files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
   expect(current).toBe(expected);
 });
 
@@ -42,7 +42,7 @@ test('comparing two nested .json files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
   expect(current).toBe(expected);
 });
 
@@ -53,7 +53,7 @@ test('comparing two nested .yml files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
   expect(current).toBe(expected);
 });
 
@@ -64,6 +64,28 @@ test('comparing two nested .ini files', () => {
 
   const str = fs.readFileSync(exPath, 'utf8');
   const expected = str.trim();
-  const current = findDiffBetweenTwoFiles(path1, path2);
+  const current = findDiffBetweenTwoFiles(path1, path2, 'default');
+  expect(current).toBe(expected);
+});
+
+test('testing plain output', () => {
+  const path1 = '__tests__/__fixtures__/extended/before.json';
+  const path2 = '__tests__/__fixtures__/extended/after.json';
+  const exPath = '__tests__/__fixtures__/extended/expectedplain.txt';
+
+  const str = fs.readFileSync(exPath, 'utf8');
+  const expected = str.trim();
+  const current = findDiffBetweenTwoFiles(path1, path2, 'plain');
+  expect(current).toBe(expected);
+});
+
+test('testing json output', () => {
+  const path1 = '__tests__/__fixtures__/extended/before.json';
+  const path2 = '__tests__/__fixtures__/extended/after.json';
+  const exPath = '__tests__/__fixtures__/extended/expectedjson.txt';
+
+  const str = fs.readFileSync(exPath, 'utf8');
+  const expected = str.trim();
+  const current = findDiffBetweenTwoFiles(path1, path2, 'json');
   expect(current).toBe(expected);
 });

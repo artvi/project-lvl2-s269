@@ -4,12 +4,12 @@ import program from 'commander';
 import findDiffBetweenTwoFiles from '..';
 
 program
-  .version('0.1.4b')
+  .version('0.2.0')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<firstConfig>, <secondConfig>')
-  .action((b, a) => {
-    console.log(findDiffBetweenTwoFiles(b, a));
-  })
-  .option('-f, --format [type]', 'Output format');
+  .option('-f, --format [type]', 'output format: plain|json', 'default')
+  .action((b, a, cmd) => {
+    console.log(findDiffBetweenTwoFiles(b, a, cmd.format));
+  });
 
 program.parse(process.argv);
